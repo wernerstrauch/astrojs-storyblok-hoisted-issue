@@ -1,0 +1,22 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+ 
+const { blok } = Astro.props
+---
+ 
+<div {...storyblokEditable(blok)}>
+  <div
+    class='container grid gap-12 mx-auto my-12 md:grid-cols-3 place-items-center'
+  >
+    {
+      blok.columns?.map((blok) => {
+        return <StoryblokComponent blok={blok} />
+      })
+    }
+  </div>
+</div>
+
+<script> 
+  console.log("Script from Grid.astro is executed");
+</script> 
